@@ -9,7 +9,7 @@ dotenv.config();
 const server = express();
 
 server.set('view engine', 'mustache')
-server.set('views', path.join(__dirname, 'view'))
+server.set('views', path.join(__dirname, 'views'))
 server.engine('mustache', mustacheExpress());
 
 server.use(express.static(path.join(__dirname, '../public')))
@@ -18,7 +18,7 @@ server.use(express.static(path.join(__dirname, '../public')))
 server.use(mainRoutes)
 
 server.use((req, res)=>{
-    res.send("Página não encontrada! Error 404")
+    res.render('pages/404')
 })
 
 server.listen(process.env.PORT)
